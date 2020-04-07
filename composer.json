@@ -1,0 +1,31 @@
+{
+  "name": "acquia/blt-acsf",
+  "type":"composer-plugin",
+  "description": "ACSF integration for Acquia BLT",
+  "license": "GPL-2.0+",
+  "authors":[
+    {
+      "name": "Acquia Engineering",
+      "homepage": "https://www.acquia.com",
+      "role": "Maintainer"
+    }
+  ],
+  "repositories": {
+    "drupal": {
+      "type": "composer",
+      "url": "https://packages.drupal.org/8"
+    }
+  },
+  "require": {
+    "composer-plugin-api": "^1.1",
+    "drupal/acsf":"^2.47.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Acquia\\BltAcsf\\": "./src/"
+    }
+  },
+  "extra": {
+    "class": "Acquia\\BltPhpcs\\Composer\\BltAcsfPlugin"
+  }
+}
