@@ -1,6 +1,5 @@
 {
   "name": "acquia/blt-acsf",
-  "type":"composer-plugin",
   "description": "ACSF integration for Acquia BLT",
   "license": "GPL-2.0+",
   "authors":[
@@ -24,8 +23,5 @@
     "psr-4": {
       "Acquia\\BltAcsf\\": "./src/"
     }
-  },
-  "extra": {
-    "class": "Acquia\\BltAcsf\\Composer\\BltAcsfPlugin"
   }
 }
