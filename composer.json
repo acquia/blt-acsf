@@ -26,6 +26,6 @@
     }
   },
   "extra": {
-    "class": "Acquia\\BltPhpcs\\Composer\\BltAcsfPlugin"
+    "class": "Acquia\\BltAcsf\\Composer\\BltAcsfPlugin"
   }
 }
