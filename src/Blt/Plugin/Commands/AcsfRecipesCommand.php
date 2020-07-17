@@ -96,7 +96,7 @@ class AcsfRecipesCommand extends BltTasks {
    * @aliases raih
    */
   public function acsfHooksInitialize() {
-    $defaultAcsfHooks = $this->getConfigValue('blt.root') . '../blt-acsf/factory-hooks';
+    $defaultAcsfHooks = $this->getConfigValue('blt.root') . '/../blt-acsf/factory-hooks';
     $projectAcsfHooks = $this->getConfigValue('repo.root') . '/factory-hooks';
 
     $result = $this->taskCopyDir([$defaultAcsfHooks => $projectAcsfHooks])
