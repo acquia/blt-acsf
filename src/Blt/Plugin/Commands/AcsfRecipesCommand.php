@@ -40,6 +40,7 @@ class AcsfRecipesCommand extends BltTasks {
     $this->printPreamble();
     $this->acsfHooksInitialize();
     $this->acsfComposerInitialize();
+    $this->acsfDrushInitialize();
     $project_yml = $this->getConfigValue('blt.config-files.project');
     $project_config = YamlMunge::parseFile($project_yml);
     if (!empty($project_config['modules'])) {
