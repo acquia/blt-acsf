@@ -23,5 +23,8 @@
     "psr-4": {
       "Acquia\\BltAcsf\\": "./src/"
     }
+  },
+  "require-dev": {
+    "acquia/coding-standards": "^0.4.3"
   }
 }

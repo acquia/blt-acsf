@@ -13,7 +13,7 @@ class AcsfTestsCommand extends BltTasks {
   /**
    * Executes the acsf-init-validate command.
    *
-   * @command tests:acsf:validate
+   * @command validate:acsf
    */
   public function validateAcsf() {
     $this->say("Validating ACSF settings...");
