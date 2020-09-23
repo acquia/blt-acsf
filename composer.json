@@ -16,7 +16,6 @@
     }
   },
   "require": {
-    "composer-plugin-api": "^1.1",
     "drupal/acsf":"^2.47.0"
   },
   "autoload": {
