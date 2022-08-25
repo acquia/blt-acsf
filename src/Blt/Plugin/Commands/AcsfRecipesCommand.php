@@ -44,7 +44,10 @@ class AcsfRecipesCommand extends BltTasks {
     $project_yml = $this->getConfigValue('blt.config-files.project');
     $project_config = YamlMunge::parseFile($project_yml);
     if (!empty($project_config['modules'])) {
-      $project_config['modules']['local']['uninstall'][] = 'acsf';
+      // Uninstall acsf module from local if not already added.
+      if (!isset($project_config['modules']['local']['uninstall']) || !in_array('acsf', $project_config['modules']['local']['uninstall'])) {
+        $project_config['modules']['local']['uninstall'][] = 'acsf';
+      }
     }
     YamlMunge::writeFile($project_yml, $project_config);
   }
