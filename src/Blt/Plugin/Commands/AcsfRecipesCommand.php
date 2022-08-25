@@ -41,6 +41,7 @@ class AcsfRecipesCommand extends BltTasks {
     $this->acsfHooksInitialize();
     $this->acsfComposerInitialize();
     $this->acsfDrushInitialize();
+    $this->acsfFilesStageIgnoreInitialize();
     $project_yml = $this->getConfigValue('blt.config-files.project');
     $project_config = YamlMunge::parseFile($project_yml);
     if (!empty($project_config['modules'])) {
@@ -112,6 +113,37 @@ class AcsfRecipesCommand extends BltTasks {
     }
 
     $this->say('New "factory-hooks/" directory created in repo root. Please commit this to your project.');
+
+    return $result;
+  }
+
+  /**
+   * Creates ".acsfstageignore" file in project's repo root.
+   *
+   * @command recipes:acsf:init:stage-ignore
+   * @aliases raisi
+   */
+  public function acsfFilesStageIgnoreInitialize() {
+    $destination_file = $this->getConfigValue('repo.root') . '/.acsfstageignore';
+    if (file_exists($destination_file)) {
+      $this->say('<info>".acsfstageignore" file already exists in repo root.</info>');
+
+      return TRUE;
+    }
+
+    $template_file = $this->getConfigValue('blt.root') . '/../blt-acsf/.acsfstageignore';
+
+    $result = $this->taskFilesystemStack()
+      ->copy($template_file, $destination_file, TRUE)
+      ->stopOnFail()
+      ->setVerbosityThreshold(VerbosityThresholdInterface::VERBOSITY_VERBOSE)
+      ->run();
+
+    if (!$result->wasSuccessful()) {
+      throw new BltException("Unable to copy .acsfstageignore file.");
+    }
+
+    $this->say('New ".acsfstageignore" file created in repo root. Please commit this to your project.');
 
     return $result;
   }
