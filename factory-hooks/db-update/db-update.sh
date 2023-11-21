@@ -40,9 +40,6 @@ echo "Running BLT deploy tasks on $uri domain in $env environment on the $sitegr
 # considered a valid URI but "domain.com/subpath" is not.
 $blt drupal:update --environment=$env --site=${name[0]} --define drush.uri=$domain/ --verbose --no-interaction
 
-# Clean up the drush cache directory.
-echo "Removing temporary drush cache files."
-
 set +v
 
 # @todo Exit with the status of the BLT commmand. If the exit status is non-zero,
